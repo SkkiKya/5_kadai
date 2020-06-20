@@ -10,6 +10,7 @@ $file->setFlags(SplFileObject::READ_CSV);
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -21,10 +22,11 @@ $file->setFlags(SplFileObject::READ_CSV);
 
 <div id="container">
   <h3 id="review">レビュー</h3>
+
   <ul>
     <?php foreach ($file as $row):?>
       <?php if (!is_null($row[0])):?>
-        <?php list($name, $email, $zip, $sex, $age, $os, $memo) = $row; ?>
+        <?php list($name, $email, $zip, $sex, $age,$os, $memo) = $row; ?>
         <li><?= "{$memo} : {$age}代 {$sex} " ."\n"?></li>
       <?php endif; ?>
     <?php endforeach; ?>

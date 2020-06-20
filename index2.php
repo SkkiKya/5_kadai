@@ -1,7 +1,6 @@
-<?php require_once 'Encode.php';
+<?php 
 
-$name = "data";
-$filepath = "data/{$name}.csv";
+require_once 'Encode.php';
 
 $name = enc($_POST['name']);
 $email = enc($_POST['email']);
@@ -22,21 +21,21 @@ $list = array(
     $memo,
   ));
 
+// ファイルに書き込む
+$name = "data";
+$filepath = "data/{$name}.csv";
 $file = fopen($filepath, "a");
-
-
 foreach ($list as $fields) {
     fputcsv($file, $fields);
 }
-
 fclose($file);
-
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>アンケート</title>
 <style>
   body{
